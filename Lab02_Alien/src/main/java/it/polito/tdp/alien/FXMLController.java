@@ -1,40 +1,36 @@
 package it.polito.tdp.alien;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import it.polito.tdp.alien.model.*;
 
 public class FXMLController {
 
     @FXML
-    private ResourceBundle resources;
+    private TextArea txtArea;
 
     @FXML
-    private URL location;
-    
+    private Button btnClear;
+
+    @FXML
+    private TextField txtInput;
+
     @FXML
     private Button btnTranslate;
-    
-    @FXML
-    private Button btnReset;
 
-    @FXML
-    void doTranslate(ActionEvent event) {
-    	// TODO - add the button and complete this    	
-    }
-    
+    Dictionary words = new Dictionary();
     
     @FXML
     void doReset(ActionEvent event) {
-    	// TODO - add the button and complete this 
+    	txtArea.clear();
     }
-    
-    
-    @FXML
-    void initialize() {
 
+    @FXML
+    void doTranslate(ActionEvent event) {
+    	txtArea.appendText(words.translate(txtInput.getText()));
     }
+
 }
